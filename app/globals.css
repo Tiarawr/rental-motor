@@ -18,11 +18,14 @@ html {
 body {
   background: #fafafa;
   color: #171717;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
-body::-webkit-scrollbar {
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
   display: none;
 }
 
