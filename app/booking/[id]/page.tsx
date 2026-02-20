@@ -4,7 +4,7 @@ import { useEffect, useState, use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { safeZodResolver } from "@/lib/zodResolver";
 import * as z from "zod";
 import { differenceInDays, parseISO } from "date-fns";
 import api from "@/lib/axios";
@@ -74,7 +74,7 @@ export default function BookingPage({
     watch,
     formState: { errors },
   } = useForm<BookingFormValues>({
-    resolver: zodResolver(bookingSchema),
+    resolver: safeZodResolver(bookingSchema),
   });
 
   const watchStartDate = watch("start_date");

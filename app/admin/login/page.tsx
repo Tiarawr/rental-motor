@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { safeZodResolver } from "@/lib/zodResolver";
 import * as z from "zod";
 import api from "@/lib/axios";
 import { Loader2 } from "lucide-react";
@@ -27,7 +27,7 @@ export default function AdminLogin() {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormValues>({
-    resolver: zodResolver(loginSchema),
+    resolver: safeZodResolver(loginSchema),
   });
 
   const onSubmit = async (data: LoginFormValues) => {

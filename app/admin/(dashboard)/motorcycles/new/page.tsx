@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { safeZodResolver } from "@/lib/zodResolver";
 import * as z from "zod";
 import api from "@/lib/axios";
 import Link from "next/link";
@@ -40,7 +40,7 @@ export default function NewMotorcycle() {
     handleSubmit,
     formState: { errors },
   } = useForm<MotorcycleFormValues>({
-    resolver: zodResolver(motorcycleSchema),
+    resolver: safeZodResolver(motorcycleSchema),
   });
 
   const onSubmit = async (data: MotorcycleFormValues) => {
