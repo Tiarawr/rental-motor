@@ -25,9 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" data-theme="light" style={{ colorScheme: "light" }}>
+    <html
+      lang="id"
+      data-theme="light"
+      style={{ colorScheme: "light" }}
+      className="no-scrollbar"
+    >
       <body
-        className={`${poppins.variable} font-sans antialiased flex flex-col min-h-screen bg-[#fafafa]`}
+        className={`${poppins.variable} font-sans antialiased flex flex-col min-h-screen bg-[#fafafa] no-scrollbar`}
       >
         <ToastProvider>
           <Header />
